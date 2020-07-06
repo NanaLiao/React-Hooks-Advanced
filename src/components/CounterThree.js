@@ -1,0 +1,37 @@
+import React,{useReducer}from 'react'; // like other hooks, useReducer also is a function
+
+
+const initialState = 0;
+const reducer = (state,action) => { // we have 3 actions here:Increment,Decrement,Reset
+  switch(action){
+    case 'increment':
+      return state + 1;
+    case 'decrement':
+      return state - 1;
+    case 'reset':
+      return initialState;
+    default:
+      return state;
+  }
+
+}
+
+function CounterThree() {
+  const [count, dispatch] = useReducer(reducer,initialState); // useReducer is similar to useState, return arr with current state and dispatch method, this dispatch allows us to execute code corresponding to action
+  const [countTwo, dispatchTwo] = useReducer(reducer,initialState);
+
+  return (
+    <div>
+      <div>count - {count}</div>
+      <button onClick = {()=>dispatch('increment')}>Increment</button>
+      <button onClick = {()=>dispatch('decrement')}>Decrement</button>
+      <button onClick = {()=>dispatch('reset')}>Reset</button>
+      <div>count - {countTwo}</div>
+      <button onClick = {()=>dispatchTwo('increment')}>Increment</button>
+      <button onClick = {()=>dispatchTwo('decrement')}>Decrement</button>
+      <button onClick = {()=>dispatchTwo('reset')}>Reset</button>
+    </div>
+  )
+}
+
+export default CounterThree
