@@ -11,6 +11,7 @@ import CounterThree from './components/CounterThree';// useReducer practice
 import ComponentA from './components/ComponentA';// useReducer+ useContext practice
 import ComponentB from './components/ComponentB';// useReducer+ useContext practice
 import ComponentC2 from './components/ComponentC2';// useReducer+ useContext practice
+import DataFetching from './components/DataFetching'; //useReducer + useEffect
 
 export const UserContext = React.createContext(); // useContext practice
 export const ChannelContext = React.createContext(); // useContext practice
@@ -65,6 +66,8 @@ function App() {
         <ComponentB />
         <ComponentC2 />
       </CountContext.Provider>
+
+      <DataFetching/>
 
 
 
